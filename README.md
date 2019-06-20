@@ -9,6 +9,20 @@ Fitting遵循Apache2.0开源协议，采用类黑箱框架模式，将大数据�
 Fitting支持C、C++、C#、Cocoa、Common Lisp、Dlang、Dart、Delphi、Erlang、Go、Haskell、Haxe、Java (SE)、Java (ME)、Lua、node.js、OCaml、Perl、PHP、Python、Ruby、Rust、Smalltalk等二十多种编程语言。</br>
 </p>
 
+# Fitting打包说明
+<p>
+wiki地址：（https://github.com/dkhadoop/fitting/wiki/Fitting%E6%89%93%E5%8C%85%E8%AF%B4%E6%98%8E.html）
+</p></br>
+
+# Fitting安装说明
+<p>
+wiki地址：（https://github.com/dkhadoop/fitting/wiki/%E7%94%A8%E6%88%B7%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C.html）
+</p></br>
+
+# Fitting开发手册JAVA描述版
+<p>
+wiki地址：（https://github.com/dkhadoop/fitting/wiki/%E7%94%A8%E6%88%B7%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8CJAVA%E7%89%88.html）
+</p></br>
 
 # 大快搜索（http://www.dksou.com）
 
