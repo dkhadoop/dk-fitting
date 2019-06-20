@@ -1,9 +1,9 @@
 # Fitting
 
-大数据的应用开发过于偏向底层，具有学习难度大，涉及技术面广的问题，这制约了大数据的普及。大快认为，需要一种技术，把大数据开发中一些通用的，重复使用的基础代码、算法封装为类库，降低大数据的学习门槛，降低开发难度，提高大数据项目的开发效率。</br>
+  Fitting是一个面向大数据的统一的开发框架，由大快搜索主导并完全开源，克服了大数据技术开发涉及技术面广,各组件间缺乏统一规范等问题，能有效降低大数据的学习难度，并提高大数据项目的开发效率并可与开源项目混用。</br>
+  Fitting遵循Apache2.0开源协议，采用类黑箱框架模式，将大数据生态圈内各组件底层API根据应用组合封装为Fitting API服务。用户编程时直接引用Fitting框架，即可使用功能丰富的Fitting API，完成过去复杂的编码工作。  Fitting框架由数据处理（dataprocess）、数据源（datasource）、ESSQL引擎（elasticsql）、图计算（graphx）、机器学习（ml）、自然语言处理（nlp）、搜索(search)、SQL工具类、（sqlutils）、流计算（stream）九大部分组成，可以单独部署，也可整体部署。</br>
+  Fitting支持C、C++、C#、Cocoa、Common Lisp、Dlang、Dart、Delphi、Erlang、Go、Haskell、Haxe、Java (SE)、Java (ME)、Lua、node.js、OCaml、Perl、PHP、Python、Ruby、Rust、Smalltalk等二十多种编程语言。</br>
 
-FreeRCH开发框架是DKH（大快Hadoop集成生态环境）的一个组成部分，采用类黑箱框架模式，由36个类共计近200种方法组成的类库。用户直接调用大快的相关类，即可完成过去复杂的编码工作。FreeRCH框架，由六部分组成，即可单独部署，也可整体部署，灵活方便。</br>
 
-FreeRCH开发框架，支持C、C++、C#、Cocoa、Common Lisp、Dlang、Dart、Delphi、Erlang、Go、Haskell、Haxe、Java (SE)、Java (ME)、Lua、node.js、OCaml、Perl、PHP、Python、Ruby、Rust、Smalltalk等二十多种编程语言的支持。</br>
 
 
