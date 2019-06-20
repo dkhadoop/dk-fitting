@@ -19,7 +19,7 @@ wiki地址：（https://github.com/dkhadoop/fitting/wiki/Fitting%E6%89%93%E5%8C%
 wiki地址：（https://github.com/dkhadoop/fitting/wiki/%E7%94%A8%E6%88%B7%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C.html）
 </p></br>
 
-# Fitting开发手册JAVA描述版
+# Fitting开发使用手册JAVA描述版
 <p>
 wiki地址：（https://github.com/dkhadoop/fitting/wiki/%E7%94%A8%E6%88%B7%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8CJAVA%E7%89%88.html）
 </p></br>
