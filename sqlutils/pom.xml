@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <parent>
+        <artifactId>fitting</artifactId>
+        <groupId>fitting</groupId>
+        <version>1.0</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>sqlutils</artifactId>
+    <packaging>jar</packaging>
+    <version>${sqlutils.version}</version>
+
+
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.thrift</groupId>
+            <artifactId>libthrift</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.polyglotted/impala-jdbcimport -->
+        <dependency>
+            <groupId>org.polyglotted</groupId>
+            <artifactId>impala-jdbcimport</artifactId>
+            <type>pom</type>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.hive/hive-jdbc -->
+        <!--<dependency>-->
+        <!--<groupId>org.apache.hive</groupId>-->
+        <!--<artifactId>hive-jdbc</artifactId>-->
+        <!--<version>1.1.0</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>org.apache.hive</groupId>-->
+        <!--<artifactId>hive-jdbc</artifactId>-->
+        <!--<version>2.3.4</version>-->
+        <!--</dependency>-->
+        <!-- https://mvnrepository.com/artifact/org.apache.hive/hive-jdbc -->
+        <dependency>
+            <groupId>org.apache.hive</groupId>
+            <artifactId>hive-jdbc</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-common</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>jdk.tools</groupId>
+                    <artifactId>jdk.tools</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.json-lib</groupId>
+            <artifactId>json-lib</artifactId>
+            <classifier>jdk15</classifier>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <encoding>${file.encoding}</encoding>
+                    <source>${java.source.version}</source>
+                    <target>${java.target.version}</target>
+                    <showWarnings>true</showWarnings>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>make-package</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <descriptors>
+                                <descriptor>src/main/assembly/assembly.xml</descriptor>
+                            </descriptors>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+            <!--<plugin>-->
+            <!--<artifactId>maven-shade-plugin</artifactId>-->
+            <!--<version>2.2</version>-->
+            <!--<executions>-->
+            <!--<execution>-->
+            <!--<phase>package</phase>-->
+            <!--<goals>-->
+            <!--<goal>shade</goal>-->
+            <!--</goals>-->
+            <!--<configuration>-->
+            <!--<transformers>-->
+            <!--<transformer-->
+            <!--implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>-->
+            <!--<transformer-->
+            <!--implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">-->
+            <!--<resource>reference.conf</resource>-->
+            <!--</transformer>-->
+            <!--</transformers>-->
+            <!--</configuration>-->
+            <!--</execution>-->
+            <!--</executions>-->
+            <!--</plugin>-->
+        </plugins>
+    </build>
+
+
+</project>

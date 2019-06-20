@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <parent>
+        <artifactId>fitting</artifactId>
+        <groupId>fitting</groupId>
+        <version>1.0</version>
+    </parent>
+    <version>${ml.version}</version>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>ml</artifactId>
+    <packaging>jar</packaging>
+
+
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.thrift</groupId>
+            <artifactId>libthrift</artifactId>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.scala-lang/scala-library -->
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-mllib -->
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-mllib_${spark.scala.version}</artifactId>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-core -->
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-core_${spark.scala.version}</artifactId>
+        </dependency>
+
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <finalName>${artifactId}-v2.0-2.x-2.11</finalName>
+        <sourceDirectory>src/main/java/</sourceDirectory>
+        <!--<testSourceDirectory>src/</testSourceDirectory>-->
+        <plugins>
+            <!-- This plugin compiles Scala files -->
+
+            <plugin>
+                <groupId>net.alchim31.maven</groupId>
+                <artifactId>scala-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>scala-compile-first</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>scala-test-compile</id>
+                        <phase>process-test-resources</phase>
+                        <goals>
+                            <goal>testCompile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- This plugin compiles Java files -->
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <encoding>${file.encoding}</encoding>
+                    <source>${java.source.version}</source>
+                    <target>${java.target.version}</target>
+                    <showWarnings>true</showWarnings>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>make-package</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <descriptors>
+                                <descriptor>src/main/assembly/assembly.xml</descriptor>
+                            </descriptors>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!--<plugin>-->
+                <!--<artifactId>maven-shade-plugin</artifactId>-->
+                <!--<version>2.4.1</version>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<phase>package</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>shade</goal>-->
+                        <!--</goals>-->
+                        <!--<configuration>-->
+                            <!--<filters>-->
+                                <!--<filter>-->
+                                    <!--<artifact>*:*</artifact>-->
+                                    <!--<excludes>-->
+                                        <!--<exclude>META-INF/*.SF</exclude>-->
+                                        <!--<exclude>META-INF/*.DSA</exclude>-->
+                                        <!--<exclude>META-INF/*.RSA</exclude>-->
+                                    <!--</excludes>-->
+                                <!--</filter>-->
+                            <!--</filters>-->
+                            <!--<transformers>-->
+                                <!--<transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />-->
+                                <!--<transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">-->
+                                    <!--<resource>reference.conf</resource>-->
+                                <!--</transformer>-->
+
+                                <!--<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">-->
+                                    <!--<mainClass></mainClass>-->
+                                <!--</transformer>-->
+
+                            <!--</transformers>-->
+                        <!--</configuration>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
+
+        </plugins>
+    </build>
+
+</project>

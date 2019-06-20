@@ -3,9 +3,345 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <groupId>fitting</groupId>
     <artifactId>fitting</artifactId>
+    <packaging>pom</packaging>
     <version>1.0</version>
+    <modules>
+        <module>nlp</module>
+        <module>search</module>
+        <module>ml</module>
+        <module>graphx</module>
+        <module>sqlutils</module>
+        <module>datasource</module>
+        <module>dataprocess</module>
+        <module>elasticsql</module>
+        <module>stream</module>
+    </modules>
 
+
+    <name>${project.artifactId}</name>
+    <description>The parent project of dk-Fitting</description>
+    <url>http://www.dksou.com</url>
+    <inceptionYear>2015</inceptionYear>
+    <licenses>
+        <license>
+            <name>Apache 2</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+            <comments>A business-friendly OSS license</comments>
+        </license>
+    </licenses>
+    <organization>
+        <name>DK</name>
+        <url>http://www.dksou.com</url>
+    </organization>
+
+    <distributionManagement>
+        <!--<repository>-->
+            <!--<id>nexus-releases</id>-->
+            <!--<name>Nexus Release Repository</name>-->
+            <!--<url>http://192.168.1.41:8181/nexus/content/repositories/releases/</url>-->
+        <!--</repository>-->
+        <!--<snapshotRepository>-->
+            <!--<id>nexus-snapshots</id>-->
+            <!--<name>Nexus Snapshot Repository</name>-->
+            <!--<url>http://192.168.1.41:8181/nexus/content/repositories/snapshots/</url>-->
+        <!--</snapshotRepository>-->
+    </distributionManagement>
+
+
+
+    <properties>
+        <!-- model version -->
+        <ml.version>1.0</ml.version>
+        <graphx.version>1.0</graphx.version>
+        <sqlutils.version>1.0</sqlutils.version>
+        <datasource.version>1.0</datasource.version>
+
+
+
+        <!-- Common libs -->
+        <thrift.version>0.11.0</thrift.version>
+        <fastjson.version>1.1.39</fastjson.version>
+        <zookeeper.version>3.4.6</zookeeper.version>
+        <zkclient.version>0.3</zkclient.version>
+        <ganymed-ssh2.version>build210</ganymed-ssh2.version>
+        <hadoop-common.verion>2.6.0</hadoop-common.verion>
+        <hadoop-client.version>2.6.0</hadoop-client.version>
+        <hadoop-hdfs.version>2.6.0</hadoop-hdfs.version>
+        <hbase-client.version>1.2.0</hbase-client.version>
+        <hbase-server.version>1.2.0</hbase-server.version>
+        <hbase-common.version>1.2.0</hbase-common.version>
+        <scala.version>2.11.8</scala.version>
+        <spark.scala.version>2.11</spark.scala.version>
+        <spark-mllib.version>2.3.0</spark-mllib.version>
+        <spark-core.version>2.3.0</spark-core.version>
+        <spark-graphx.version>2.3.0</spark-graphx.version>
+        <guava.version>18.0</guava.version>
+        <impala-jdbcimport.version>1.0.0</impala-jdbcimport.version>
+        <hive-jdbc.version>2.0.0</hive-jdbc.version>
+        <json-lib.version>2.4</json-lib.version>
+
+
+        <!-- Log libs -->
+        <slf4j.version>1.6.2</slf4j.version>
+        <log4j.version>1.2.16</log4j.version>
+        <logback.version>1.0.6</logback.version>
+        <commons-logging.version>1.2</commons-logging.version>
+
+
+        <!-- Test libs -->
+        <junit.version>4.10</junit.version>
+
+        <!-- Build args -->
+        <!--<argline>-server -Xms64m -Xmx64m -XX:PermSize=64m -XX:MaxPermSize=64m</argline> -->
+        <!--
+        <skip.maven.deploy>false</skip.maven.deploy>
+        <updateReleaseInfo>true</updateReleaseInfo>
+        <project.build.sourceEncoding>${file.encoding}</project.build.sourceEncoding>
+        -->
+
+        <!-- for maven compiler plugin -->
+        <java.source.version>1.8</java.source.version>
+        <java.target.version>1.8</java.target.version>
+        <file.encoding>UTF-8</file.encoding>
+        <maven.deploy.plugin.version>2.7</maven.deploy.plugin.version>
+        <maven.eclipse.plugin.version>2.8</maven.eclipse.plugin.version>
+        <maven.compiler.plugin.version>2.3.2</maven.compiler.plugin.version>
+        <maven.source.plugin.version>2.1.2</maven.source.plugin.version>
+        <!--
+        <maven.jar.plugin.version>2.3.2</maven.jar.plugin.version>
+        <maven.war.plugin.version>2.1.1</maven.war.plugin.version>
+        <maven.install.plugin.version>2.3.1</maven.install.plugin.version>
+        <maven-surefire-plugin.version>2.17</maven-surefire-plugin.version>
+        -->
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.apache.thrift</groupId>
+                <artifactId>libthrift</artifactId>
+                <version>${thrift.version}</version>
+            </dependency>
+
+            <!--datasource 模块依赖-->
+            <dependency>
+                <groupId>org.apache.zookeeper</groupId>
+                <artifactId>zookeeper</artifactId>
+                <version>${zookeeper.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.101tec</groupId>
+                <artifactId>zkclient</artifactId>
+                <version>${zkclient.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
+            <!-- Log libs -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+            <!-- Test libs -->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>ch.ethz.ganymed</groupId>
+                <artifactId>ganymed-ssh2</artifactId>
+                <version>${ganymed-ssh2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-logging</groupId>
+                <artifactId>commons-logging</artifactId>
+                <version>${commons-logging.version}</version>
+            </dependency>
+            <!--Hadoop环境支持-->
+            <dependency>
+                <groupId>org.apache.hadoop</groupId>
+                <artifactId>hadoop-common</artifactId>
+                <version>${hadoop-common.verion}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>jdk.tools</groupId>
+                        <artifactId>jdk.tools</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.hadoop</groupId>
+                <artifactId>hadoop-client</artifactId>
+                <version>${hadoop-client.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.google.guava</groupId>
+                        <artifactId>guava</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.hadoop</groupId>
+                <artifactId>hadoop-hdfs</artifactId>
+                <version>${hadoop-hdfs.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.google.guava</groupId>
+                        <artifactId>guava</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!--hbase支持-->
+            <dependency>
+                <groupId>org.apache.hbase</groupId>
+                <artifactId>hbase-client</artifactId>
+                <version>${hbase-client.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.hbase</groupId>
+                <artifactId>hbase-server</artifactId>
+                <version>${hbase-server.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.google.guava</groupId>
+                        <artifactId>guava</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.hbase</groupId>
+                <artifactId>hbase-common</artifactId>
+                <version>${hbase-common.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.google.guava</groupId>
+                        <artifactId>guava</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!-- ml 模块依赖 -->
+            <!-- https://mvnrepository.com/artifact/org.scala-lang/scala-library -->
+            <dependency>
+                <groupId>org.scala-lang</groupId>
+                <artifactId>scala-library</artifactId>
+                <version>${scala.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-mllib -->
+            <dependency>
+                <groupId>org.apache.spark</groupId>
+                <artifactId>spark-mllib_${spark.scala.version}</artifactId>
+                <version>${spark-mllib.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-core -->
+            <dependency>
+                <groupId>org.apache.spark</groupId>
+                <artifactId>spark-core_${spark.scala.version}</artifactId>
+                <version>${spark-core.version}</version>
+            </dependency>
+            <!-- ml 模块依赖 结束 -->
+
+            <!--graphx模块依赖-->
+            <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-graphx -->
+            <dependency>
+                <groupId>org.apache.spark</groupId>
+                <artifactId>spark-graphx_${spark.scala.version}</artifactId>
+                <version>${spark-graphx.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+            <!--graphx模块依赖结束 -->
+
+            <!--sqlutils模块依赖-->
+
+            <!-- https://mvnrepository.com/artifact/org.polyglotted/impala-jdbcimport -->
+            <dependency>
+                <groupId>org.polyglotted</groupId>
+                <artifactId>impala-jdbcimport</artifactId>
+                <version>${impala-jdbcimport.version}</version>
+                <type>pom</type>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.hive</groupId>
+                <artifactId>hive-jdbc</artifactId>
+                <version>${hive-jdbc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.sf.json-lib</groupId>
+                <artifactId>json-lib</artifactId>
+                <version>${json-lib.version}</version>
+                <classifier>jdk15</classifier>
+            </dependency>
+            <!--sqlutils模块依赖结束 -->
+
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <encoding>${file.encoding}</encoding>
+                    <source>${java.source.version}</source>
+                    <target>${java.target.version}</target>
+                    <showWarnings>true</showWarnings>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>datasource.properties</exclude>
+                        <exclude>log4j.properties</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

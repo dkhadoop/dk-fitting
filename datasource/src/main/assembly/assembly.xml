@@ -1,0 +1,45 @@
+<assembly>
+	<id>assembly</id>
+	<formats>
+		<!--<format>tar.gz</format>-->
+		<format>zip</format>
+	</formats>
+	<includeBaseDirectory>true</includeBaseDirectory>
+	<fileSets>
+		<fileSet>
+			<directory>${project.basedir}/src/main/resources</directory>
+			<outputDirectory>/conf</outputDirectory>
+			<fileMode>0644</fileMode>
+		</fileSet>
+		<fileSet>
+			<directory>${project.basedir}/src/main/bin</directory>
+			<outputDirectory>/bin</outputDirectory>
+			<includes>
+				<include>run.sh</include>
+				<!--<include>start.bat</include>-->
+			</includes>
+			<!-- 过滤文件中的maven变量为maven值 -->
+			<filtered>true</filtered>
+			<fileMode>0755</fileMode>
+		</fileSet>
+		<fileSet>
+			<directory>${project.basedir}/</directory>
+			<outputDirectory>/</outputDirectory>
+			<includes>
+				<include>README.txt</include>
+			</includes>
+			<fileMode>0644</fileMode>
+		</fileSet>
+	</fileSets>
+	<dependencySets>
+		<dependencySet>
+			<useProjectArtifact>true</useProjectArtifact>
+			<outputDirectory>lib</outputDirectory>
+			<scope>runtime</scope>
+		</dependencySet>
+	</dependencySets>
+</assembly>
+
+
+
+
