@@ -24,7 +24,7 @@ public class DKMLImpl implements DKML.Iface{
      */
     @Override
     public void alsModelBuild(String masterUrl, String inputPath, String modelPath, int rank, int numIterations, DKMLConf dkmlConf) throws TException {
-        String className = "com.dksou.freerch.ml.service.serviceImpl.als.ALSModelBuild";
+        String className = "com.dksou.fitting.ml.service.serviceImpl.als.ALSModelBuild";
         String logName = "alsModelBuild" ;
         String dkmlpath = PathUtils.processingPathSeparator(prop.get("dkml.path")) + "lib/";
         String command = SparkSubmitUtils.parameterAssembly(masterUrl,prop,dkmlConf,className,new String[]{inputPath,modelPath,rank+"",numIterations+"",dkmlpath});
@@ -40,7 +40,7 @@ public class DKMLImpl implements DKML.Iface{
      */
     @Override
     public void rmUsers(String masterUrl, String inputPath, String modelPath, String outputPath, DKMLConf dkmlConf) throws TException {
-        String className = "com.dksou.freerch.ml.service.serviceImpl.als.RMUsers";
+        String className = "com.dksou.fitting.ml.service.serviceImpl.als.RMUsers";
         String logName = "rmUsers" ;
         String dkmlpath = PathUtils.processingPathSeparator(prop.get("dkml.path")) + "lib/";
         String command = SparkSubmitUtils.parameterAssembly(masterUrl,prop,dkmlConf,className,new String[]{inputPath,modelPath,outputPath,dkmlpath});
@@ -57,7 +57,7 @@ public class DKMLImpl implements DKML.Iface{
      */
     @Override
     public void rmpProducts(String masterUrl, String inputPath, String modelPath, String outputPath, DKMLConf dkmlConf) throws TException {
-        String className = "com.dksou.freerch.ml.service.serviceImpl.als.RMProducts";
+        String className = "com.dksou.fitting.ml.service.serviceImpl.als.RMProducts";
         String logName = "rmpProducts";
         String dkmlpath = PathUtils.processingPathSeparator(prop.get("dkml.path")) + "lib/";
         String command = SparkSubmitUtils.parameterAssembly(masterUrl,prop,dkmlConf,className,new String[]{inputPath,modelPath,outputPath,dkmlpath});
@@ -74,7 +74,7 @@ public class DKMLImpl implements DKML.Iface{
      */
     @Override
     public void fpGrowthModelBuild(String masterUrl, String inputPath, String outputPath, double minSupport, DKMLConf dkmlConf) throws TException {
-        String className = "com.dksou.freerch.ml.service.serviceImpl.fpgrowth.FPGrowthModel";
+        String className = "com.dksou.fitting.ml.service.serviceImpl.fpgrowth.FPGrowthModel";
         String logName = "fpGrowthModelBuild";
         String dkmlpath = PathUtils.processingPathSeparator(prop.get("dkml.path")) + "lib/";
         String command = SparkSubmitUtils.parameterAssembly(masterUrl,prop,dkmlConf,className,new String[]{inputPath,outputPath,minSupport+"",dkmlpath});
@@ -92,7 +92,7 @@ public class DKMLImpl implements DKML.Iface{
      */
     @Override
     public void gmModelBuild(String masterUrl, String inputPath, String modelPath, int numClusters, DKMLConf dkmlConf) throws TException {
-        String className = "com.dksou.freerch.ml.service.serviceImpl.gaussian.GMModelBuild";
+        String className = "com.dksou.fitting.ml.service.serviceImpl.gaussian.GMModelBuild";
         String logName = "gmModelBuild";
         String dkmlpath = PathUtils.processingPathSeparator(prop.get("dkml.path")) + "lib/";
         String command = SparkSubmitUtils.parameterAssembly(masterUrl,prop,dkmlConf,className,new String[]{inputPath,modelPath,numClusters+"",dkmlpath});
@@ -109,7 +109,7 @@ public class DKMLImpl implements DKML.Iface{
      */
     @Override
     public void gmModelPredict(String masterUrl, String inputPath, String modelPath, String outputPath, DKMLConf dkmlConf) throws TException {
-        String className = "com.dksou.freerch.ml.service.serviceImpl.gaussian.GMModelPredict";
+        String className = "com.dksou.fitting.ml.service.serviceImpl.gaussian.GMModelPredict";
         String logName = "gmModelPredict" ;
         String dkmlpath = PathUtils.processingPathSeparator(prop.get("dkml.path")) + "lib/";
         String command = SparkSubmitUtils.parameterAssembly(masterUrl,prop,dkmlConf,className,new String[]{inputPath,modelPath,outputPath,dkmlpath});
@@ -126,7 +126,7 @@ public class DKMLImpl implements DKML.Iface{
      */
     @Override
     public void kmModelBuild(String masterUrl, String inputPath, String modelPath, int numClusters, DKMLConf dkmlConf) throws TException {
-        String className = "com.dksou.freerch.ml.service.serviceImpl.kmeans.KMModelBuild";
+        String className = "com.dksou.fitting.ml.service.serviceImpl.kmeans.KMModelBuild";
         String logName = "kmModelBuild";
         String dkmlpath = PathUtils.processingPathSeparator(prop.get("dkml.path")) + "lib/";
         String command = SparkSubmitUtils.parameterAssembly(masterUrl,prop,dkmlConf,className,new String[]{inputPath,modelPath,numClusters+"",dkmlpath});
@@ -143,7 +143,7 @@ public class DKMLImpl implements DKML.Iface{
      */
     @Override
     public void kmModelPredict(String masterUrl, String inputPath, String modelPath, String outputPath, DKMLConf dkmlConf) throws TException {
-        String className = "com.dksou.freerch.ml.service.serviceImpl.kmeans.KMModelPredict";
+        String className = "com.dksou.fitting.ml.service.serviceImpl.kmeans.KMModelPredict";
         String logName = "kmModelPredict" ;
         String dkmlpath = PathUtils.processingPathSeparator(prop.get("dkml.path")) + "lib/";
         String command = SparkSubmitUtils.parameterAssembly(masterUrl,prop,dkmlConf,className,new String[]{inputPath,modelPath,outputPath,dkmlpath});
@@ -162,7 +162,7 @@ public class DKMLImpl implements DKML.Iface{
      */
     @Override
     public void lrModelBuild(String masterUrl, String inputPath, String modelPath, int numClass, DKMLConf dkmlConf) throws TException {
-        String className = "com.dksou.freerch.ml.service.serviceImpl.lr.LRModelBuild";
+        String className = "com.dksou.fitting.ml.service.serviceImpl.lr.LRModelBuild";
         String logName = "lrModelBuild" ;
         String dkmlpath = PathUtils.processingPathSeparator(prop.get("dkml.path")) + "lib/";
         String command = SparkSubmitUtils.parameterAssembly(masterUrl,prop,dkmlConf,className,new String[]{inputPath,modelPath,numClass+"",dkmlpath});
@@ -179,7 +179,7 @@ public class DKMLImpl implements DKML.Iface{
      */
     @Override
     public void lrModelPredict(String masterUrl, String inputPath, String modelPath, String outputPath, DKMLConf dkmlConf) throws TException {
-        String className = "com.dksou.freerch.ml.service.serviceImpl.lr.LRModelPredict";
+        String className = "com.dksou.fitting.ml.service.serviceImpl.lr.LRModelPredict";
         String logName = "lrModelPredict";
         String dkmlpath = PathUtils.processingPathSeparator(prop.get("dkml.path")) + "lib/";
         String command = SparkSubmitUtils.parameterAssembly(masterUrl,prop,dkmlConf,className,new String[]{inputPath,modelPath,outputPath,dkmlpath});
@@ -196,7 +196,7 @@ public class DKMLImpl implements DKML.Iface{
      */
     @Override
     public void nbModelBuild(String masterUrl, String inputPath, String modelPath, DKMLConf dkmlConf) throws TException {
-        String className = "com.dksou.freerch.ml.service.serviceImpl.nb.NBModelBuild";
+        String className = "com.dksou.fitting.ml.service.serviceImpl.nb.NBModelBuild";
         String logName = "nbModelBuild";
         String dkmlpath = PathUtils.processingPathSeparator(prop.get("dkml.path")) + "lib/";
         String command = SparkSubmitUtils.parameterAssembly(masterUrl,prop,dkmlConf,className,new String[]{inputPath,modelPath,dkmlpath});
@@ -213,7 +213,7 @@ public class DKMLImpl implements DKML.Iface{
      */
     @Override
     public void nbModelPredict(String masterUrl, String inputPath, String modelPath, String outputPath, DKMLConf dkmlConf) throws TException {
-        String className = "com.dksou.freerch.ml.service.serviceImpl.nb.NBModelPredict";
+        String className = "com.dksou.fitting.ml.service.serviceImpl.nb.NBModelPredict";
         String logName = "nbModelPredict" ;
         String dkmlpath = PathUtils.processingPathSeparator(prop.get("dkml.path")) + "lib/";
         String command = SparkSubmitUtils.parameterAssembly(masterUrl,prop,dkmlConf,className,new String[]{inputPath,modelPath,outputPath,dkmlpath});
@@ -230,7 +230,7 @@ public class DKMLImpl implements DKML.Iface{
      */
     @Override
     public void pcaModel(String masterUrl, String inputPath, String outputPath, int k, DKMLConf dkmlConf) throws TException {
-        String className = "com.dksou.freerch.ml.service.serviceImpl.pca.PCAModel";
+        String className = "com.dksou.fitting.ml.service.serviceImpl.pca.PCAModel";
         String logName = "pcaModel" ;
         String dkmlpath = PathUtils.processingPathSeparator(prop.get("dkml.path")) + "lib/";
         String command = SparkSubmitUtils.parameterAssembly(masterUrl,prop,dkmlConf,className,new String[]{inputPath,outputPath,k+"",dkmlpath});
@@ -247,7 +247,7 @@ public class DKMLImpl implements DKML.Iface{
      */
     @Override
     public void rfClassModelBuild(String masterUrl, String inputPath, String modelPath, int numClass, DKMLConf dkmlConf) throws TException {
-        String className = "com.dksou.freerch.ml.service.serviceImpl.randomforest.RFClassModelBuild";
+        String className = "com.dksou.fitting.ml.service.serviceImpl.randomforest.RFClassModelBuild";
         String logName = "rfClassModelBuild" ;
         String dkmlpath = PathUtils.processingPathSeparator(prop.get("dkml.path")) + "lib/";
         String command = SparkSubmitUtils.parameterAssembly(masterUrl,prop,dkmlConf,className,new String[]{inputPath,modelPath,numClass+"",dkmlpath});
@@ -263,7 +263,7 @@ public class DKMLImpl implements DKML.Iface{
      */
     @Override
     public void rfRegresModelBuild(String masterUrl, String inputPath, String modelPath, DKMLConf dkmlConf) throws TException {
-        String className = "com.dksou.freerch.ml.service.serviceImpl.randomforest.RFRegresModelBuild";
+        String className = "com.dksou.fitting.ml.service.serviceImpl.randomforest.RFRegresModelBuild";
         String logName = "rfRegresModelBuild" ;
         String dkmlpath = PathUtils.processingPathSeparator(prop.get("dkml.path")) + "lib/";
         String command = SparkSubmitUtils.parameterAssembly(masterUrl,prop,dkmlConf,className,new String[]{inputPath,modelPath,dkmlpath});
@@ -280,7 +280,7 @@ public class DKMLImpl implements DKML.Iface{
      */
     @Override
     public void rfModelPredict(String masterUrl, String inputPath, String modelPath, String outputPath, DKMLConf dkmlConf) throws TException {
-        String className = "com.dksou.freerch.ml.service.serviceImpl.randomforest.RFModelPredict";
+        String className = "com.dksou.fitting.ml.service.serviceImpl.randomforest.RFModelPredict";
         String logName = "rfModelPredict" ;
         String dkmlpath = PathUtils.processingPathSeparator(prop.get("dkml.path")) + "lib/";
         String command = SparkSubmitUtils.parameterAssembly(masterUrl,prop,dkmlConf,className,new String[]{inputPath,modelPath,outputPath,dkmlpath});
@@ -296,7 +296,7 @@ public class DKMLImpl implements DKML.Iface{
      */
     @Override
     public void svmModelBuild(String masterUrl, String inputPath, String modelPath, DKMLConf dkmlConf) throws TException {
-        String className = "com.dksou.freerch.ml.service.serviceImpl.svm.SVMModelBuild";
+        String className = "com.dksou.fitting.ml.service.serviceImpl.svm.SVMModelBuild";
         String logName = "svmModelBuild" ;
         String dkmlpath = PathUtils.processingPathSeparator(prop.get("dkml.path")) + "lib/";
         String command = SparkSubmitUtils.parameterAssembly(masterUrl,prop,dkmlConf,className,new String[]{inputPath,modelPath,dkmlpath});
@@ -313,7 +313,7 @@ public class DKMLImpl implements DKML.Iface{
      */
     @Override
     public void svmModelPredict(String masterUrl, String inputPath, String modelPath, String outputPath, DKMLConf dkmlConf) throws TException {
-        String className = "com.dksou.freerch.ml.service.serviceImpl.svm.SVMModelPredict";
+        String className = "com.dksou.fitting.ml.service.serviceImpl.svm.SVMModelPredict";
         String logName = "svmModelPredict" ;
         String dkmlpath = PathUtils.processingPathSeparator(prop.get("dkml.path")) + "lib/";
         String command = SparkSubmitUtils.parameterAssembly(masterUrl,prop,dkmlConf,className,new String[]{inputPath,modelPath,outputPath,dkmlpath});

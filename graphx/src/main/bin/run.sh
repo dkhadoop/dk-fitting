@@ -5,7 +5,7 @@ BIN_DIR=`pwd`
 cd ..
 APP_HOME=`pwd`
 
-APP_MAINCLASS=com.dksou.freerch.graphx.service.DKGraphxServer
+APP_MAINCLASS=com.dksou.fitting.graphx.service.DKGraphxServer
 
 #RUNNING_USER=root
 CONF_DIR=$APP_HOME/conf

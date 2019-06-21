@@ -26,7 +26,7 @@ public class DKGraphxImpl implements DKGraphx.Iface{
      */
     @Override
     public void pageRank(String masterUrl, String inputPath, String delimiter, String dataType, String outputPath, DKGraphxConf dkgraphxconf) throws TException {
-        String className = "com.dksou.freerch.graphx.service.serviceImpl.DKPageRank";
+        String className = "com.dksou.fitting.graphx.service.serviceImpl.DKPageRank";
         String logName = "pageRank" ;
         String dkgraphxpath = PathUtils.processingPathSeparator(prop.get("dkgraphx.path")) + "lib/";
         String command = SparkSubmitUtils.parameterAssembly(masterUrl,prop,dkgraphxconf,className,new String[]{inputPath,delimiter,dataType,outputPath,dkgraphxpath});
@@ -44,7 +44,7 @@ public class DKGraphxImpl implements DKGraphx.Iface{
      */
     @Override
     public void commDetect(String masterUrl, String inputPath, String delimiter, String outputPath, DKGraphxConf dkgraphxconf) throws TException {
-        String className = "com.dksou.freerch.graphx.service.serviceImpl.DKlouvain";
+        String className = "com.dksou.fitting.graphx.service.serviceImpl.DKlouvain";
         String logName = "commDetect" ;
         String dkgraphxpath = PathUtils.processingPathSeparator(prop.get("dkgraphx.path")) + "lib/";
         String command = SparkSubmitUtils.parameterAssembly(masterUrl,prop,dkgraphxconf,className,new String[]{inputPath,delimiter,outputPath,dkgraphxpath});
@@ -65,7 +65,7 @@ public class DKGraphxImpl implements DKGraphx.Iface{
      */
     @Override
     public void frindsFind(String masterUrl, String inputPath, String delimiter, String outputPath, DKGraphxConf dkgraphxconf) throws TException {
-        String className = "com.dksou.freerch.graphx.service.serviceImpl.DKShortPaths";
+        String className = "com.dksou.fitting.graphx.service.serviceImpl.DKShortPaths";
         String logName = "frindsFind" ;
         String dkgraphxpath = PathUtils.processingPathSeparator(prop.get("dkgraphx.path")) + "lib/";
         String command = SparkSubmitUtils.parameterAssembly(masterUrl,prop,dkgraphxconf,className,new String[]{inputPath,delimiter,outputPath,dkgraphxpath});

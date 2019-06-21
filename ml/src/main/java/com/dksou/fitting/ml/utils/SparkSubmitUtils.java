@@ -53,7 +53,7 @@ public class SparkSubmitUtils {
 
         command.append("--class" + " " + className + " ");
         String dkmlpath = PathUtils.processingPathSeparator(prop.get("dkml.path"));
-        command.append(dkmlpath + "lib/freerch-ml-2.0.jar" + " ");
+        command.append(dkmlpath + "lib/ml-1.0.jar" + " ");
 
         for(String arg : args){
             command.append(arg + " ");
