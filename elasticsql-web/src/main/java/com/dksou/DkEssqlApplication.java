@@ -2,11 +2,7 @@ package com.dksou;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.context.web.SpringBootServletInitializer;
-
-
-import java.util.HashMap;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
 
 @SpringBootApplication
 public class DkEssqlApplication  extends SpringBootServletInitializer { //extends SpringBootServletInitializer

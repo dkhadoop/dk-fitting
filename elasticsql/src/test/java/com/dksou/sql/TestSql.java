@@ -16,7 +16,7 @@ public class TestSql {
         Properties info = new Properties();
         info.setProperty("lex", "mysql");
         Connection connection = DriverManager.getConnection("jdbc:calcite:model=" +
-                "E:\\fitting13\\dk-essql\\src\\test\\java\\com\\dksou\\sql\\elasticsearch-zips-model3.json", info);
+                "E:\\freerch13\\dk-essql\\src\\test\\java\\com\\dksou\\sql\\elasticsearch-zips-model3.json", info);
         ResultSet result = connection.getMetaData().getTables(null, null, null, null);
         while (result.next()) {
             System.out.println("Database : " + result.getString(2) + ",Table : " + result.getString(3));
