@@ -1,10 +1,10 @@
 #!/bin/sh
-#JAVA_HOME=$JAVA_HOME
+JAVA_HOME=$JAVA_HOME
 cd `dirname $0`
 BIN_DIR=`pwd`
 cd ..
 APP_HOME=`pwd`
-JAVA_HOME=`dirname $APP_HOME`/jdk1.8.0_131
+#JAVA_HOME=`dirname $APP_HOME`/jdk1.8.0_131
 
 APP_MAINCLASS=com.dksou.fitting.sqlutils.server.DKSQLUtilsServer
 

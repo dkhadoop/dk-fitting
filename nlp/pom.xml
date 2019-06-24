@@ -12,4 +12,635 @@
     <artifactId>nlp</artifactId>
 
 
+
+    <dependencies>
+
+
+        <dependency>
+            <groupId>com.hankcs</groupId>
+            <artifactId>hanlp</artifactId>
+            <version>${hanlp.version}</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/hanlp-portable-1.3.4.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.hankcs.nlp</groupId>
+            <artifactId>text-classification</artifactId>
+            <version>1.0.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/text-classification-1.0.0.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.hankcs.nlp</groupId>
+            <artifactId>new-word-discovery</artifactId>
+            <version>1.0.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/new-word-discovery-1.0.0.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.hankcs.cluster</groupId>
+            <artifactId>cluster</artifactId>
+            <version>1.0.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/cluster-1.0.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>de.bwaldvogel</groupId>
+            <artifactId>liblinear</artifactId>
+        </dependency>
+
+
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+
+        <!-- Spring Boot Test 依赖 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+
+
+        <dependency>
+            <groupId>com.hankcs</groupId>
+            <artifactId>hanlp</artifactId>
+        </dependency>
+
+
+
+        <dependency>
+            <groupId>javax.activation</groupId>
+            <artifactId>activation</artifactId>
+        </dependency>
+
+        <!-- apacheds-i18n-2.0.0-M15.jar -->
+        <dependency>
+            <groupId>org.apache.directory.server</groupId>
+            <artifactId>apacheds-i18n</artifactId>
+        </dependency>
+
+        <!-- apacheds-kerberos-codec-2.0.0-M15.jar -->
+        <dependency>
+            <groupId>org.apache.directory.server</groupId>
+            <artifactId>apacheds-kerberos-codec</artifactId>
+        </dependency>
+
+
+        <!-- api-asn1-api-1.0.0-M20.jar -->
+        <dependency>
+            <groupId>org.apache.directory.api</groupId>
+            <artifactId>api-asn1-api</artifactId>
+        </dependency>
+
+        <!-- api-util-1.0.0-M20.jar -->
+        <dependency>
+            <groupId>org.apache.directory.api</groupId>
+            <artifactId>api-util</artifactId>
+        </dependency>
+
+        <!-- asm-3.1.jar -->
+        <dependency>
+            <groupId>asm</groupId>
+            <artifactId>asm</artifactId>
+        </dependency>
+
+        <!-- avro-1.7.4.jar -->
+        <dependency>
+            <groupId>org.apache.avro</groupId>
+            <artifactId>avro</artifactId>
+        </dependency>
+
+        <!-- commons-beanutils-1.7.0.jar -->
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+        </dependency>
+
+        <!-- commons-beanutils-core-1.8.0.jar -->
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils-core</artifactId>
+        </dependency>
+
+        <!-- commons-cli-1.2.jar -->
+        <dependency>
+            <groupId>commons-cli</groupId>
+            <artifactId>commons-cli</artifactId>
+        </dependency>
+
+        <!-- commons-codec-1.4.jar -->
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+        </dependency>
+
+        <!-- commons-collections-3.2.1.jar -->
+        <dependency>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+        </dependency>
+
+        <!-- commons-compress-1.4.1.jar -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-compress</artifactId>
+        </dependency>
+
+        <!-- commons-configuration-1.6.jar -->
+        <dependency>
+            <groupId>commons-configuration</groupId>
+            <artifactId>commons-configuration</artifactId>
+        </dependency>
+
+        <!-- commons-daemon-1.0.13.jar -->
+        <dependency>
+            <groupId>commons-daemon</groupId>
+            <artifactId>commons-daemon</artifactId>
+        </dependency>
+
+        <!-- commons-digester-1.8.jar -->
+        <dependency>
+            <groupId>commons-digester</groupId>
+            <artifactId>commons-digester</artifactId>
+        </dependency>
+
+
+        <!-- commons-httpclient-3.1.jar -->
+        <dependency>
+            <groupId>commons-httpclient</groupId>
+            <artifactId>commons-httpclient</artifactId>
+        </dependency>
+
+
+        <!-- commons-io-2.4.jar -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+        </dependency>
+
+        <!-- commons-lang-2.6.jar -->
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+        </dependency>
+
+
+        <!-- commons-logging-1.1.3.jar -->
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+        </dependency>
+
+        <!-- commons-math3-3.1.1.jar -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-math3</artifactId>
+        </dependency>
+
+        <!-- commons-net-3.1.jar -->
+        <dependency>
+            <groupId>commons-net</groupId>
+            <artifactId>commons-net</artifactId>
+        </dependency>
+
+
+        <!-- curator-client-2.6.0.jar -->
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-client</artifactId>
+        </dependency>
+
+        <!-- curator-framework-2.6.0.jar -->
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-framework</artifactId>
+        </dependency>
+
+        <!-- curator-recipes-2.6.0.jar -->
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-recipes</artifactId>
+        </dependency>
+
+        <!-- gson-2.2.4.jar -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+        </dependency>
+
+        <!-- guava-11.0.2.jar -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+
+        </dependency>
+
+
+        <!-- hadoop-annotations-2.6.0.jar -->
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-annotations</artifactId>
+
+        </dependency>
+
+        <!-- hadoop-auth-2.6.0.jar -->
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-auth</artifactId>
+
+        </dependency>
+
+        <!-- hadoop-client-2.6.0.jar -->
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-client</artifactId>
+        </dependency>
+
+        <!-- hadoop-common-2.6.0.jar -->
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-common</artifactId>
+
+        </dependency>
+
+        <!-- hadoop-hdfs-2.6.0.jar -->
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-hdfs</artifactId>
+
+        </dependency>
+
+        <!-- hadoop-mapreduce-client-app-2.6.0.jar ?  hadoop-mapreduce-client-core-2.6.0.jar -->
+
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-mapreduce-client-core</artifactId>
+
+        </dependency>
+
+        <!-- hadoop-mapreduce-client-common-2.6.0.jar -->
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-mapreduce-client-common</artifactId>
+
+        </dependency>
+
+        <!-- hadoop-mapreduce-client-shuffle-2.6.0.jar -->
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-mapreduce-client-shuffle</artifactId>
+
+        </dependency>
+
+
+        <!-- hadoop-yarn-api-2.6.0.jar -->
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-yarn-api</artifactId>
+        </dependency>
+
+        <!-- hadoop-yarn-client-2.6.0.jar -->
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-yarn-client</artifactId>
+        </dependency>
+
+        <!-- hadoop-yarn-common-2.6.0.jar -->
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-yarn-common</artifactId>
+        </dependency>
+
+
+        <!-- hadoop-yarn-server-common-2.6.0.jar -->
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-yarn-server-common</artifactId>
+        </dependency>
+
+        <!-- htrace-core-3.0.4.jar -->
+        <dependency>
+            <groupId>org.htrace</groupId>
+            <artifactId>htrace-core</artifactId>
+
+        </dependency>
+
+        <!-- httpclient-4.2.5.jar -->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+        </dependency>
+
+        <!-- httpcore-4.1.2.jar -->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpcore</artifactId>
+
+        </dependency>
+
+        <!-- jackson-core-asl-1.9.13.jar -->
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-core-asl</artifactId>
+
+        </dependency>
+
+        <!-- jackson-jaxrs-1.8.3.jar -->
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-jaxrs</artifactId>
+
+        </dependency>
+
+        <!-- jackson-mapper-asl-1.9.13.jar -->
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>1.9.13</version>
+        </dependency>
+
+        <!-- jackson-xc-1.8.3.jar -->
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-xc</artifactId>
+        </dependency>
+
+        <!-- jasper-compiler-5.5.23.jar -->
+        <dependency>
+            <groupId>tomcat</groupId>
+            <artifactId>jasper-compiler</artifactId>
+
+        </dependency>
+
+        <!-- jasper-runtime-5.5.23.jar -->
+        <dependency>
+            <groupId>tomcat</groupId>
+            <artifactId>jasper-runtime</artifactId>
+
+        </dependency>
+
+        <!-- java-xmlbuilder-0.4.jar -->
+        <dependency>
+            <groupId>com.jamesmurty.utils</groupId>
+            <artifactId>java-xmlbuilder</artifactId>
+
+        </dependency>
+
+        <!-- jaxb-api-2.2.2.jar -->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+
+        </dependency>
+
+        <!-- jaxb-impl-2.2.3-1.jar -->
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-impl</artifactId>
+
+        </dependency>
+
+
+        <!-- jersey-client-1.9.jar -->
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-client</artifactId>
+
+        </dependency>
+
+        <!-- jersey-core-1.9.jar -->
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-core</artifactId>
+        </dependency>
+
+        <!-- jersey-json-1.9.jar -->
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-json</artifactId>
+
+        </dependency>
+
+        <!-- jersey-server-1.9.jar -->
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-server</artifactId>
+
+        </dependency>
+
+        <!-- jets3t-0.9.0.jar -->
+        <dependency>
+            <groupId>net.java.dev.jets3t</groupId>
+            <artifactId>jets3t</artifactId>
+
+        </dependency>
+
+        <!-- jettison-1.1.jar -->
+        <dependency>
+            <groupId>org.codehaus.jettison</groupId>
+            <artifactId>jettison</artifactId>
+
+        </dependency>
+
+        <!-- jetty-util-6.1.26.jar -->
+        <dependency>
+            <groupId>org.mortbay.jetty</groupId>
+            <artifactId>jetty-util</artifactId>
+
+        </dependency>
+
+        <!-- jsch-0.1.42.jar -->
+        <dependency>
+            <groupId>com.jcraft</groupId>
+            <artifactId>jsch</artifactId>
+
+        </dependency>
+
+        <!-- jsp-api-2.1.jar -->
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>jsp-api</artifactId>
+
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- jsr305-1.3.9.jar -->
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+
+        </dependency>
+
+        <!-- liblinear-1.95.jar -->
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+
+        </dependency>
+
+        <!-- log4j-1.2.17.jar -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+
+        </dependency>
+
+        <!-- netty-3.6.2.Final.jar -->
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty</artifactId>
+
+        </dependency>
+
+        <!-- paranamer-2.3.jar -->
+        <dependency>
+            <groupId>com.thoughtworks.paranamer</groupId>
+            <artifactId>paranamer</artifactId>
+
+        </dependency>
+
+
+
+
+        <!-- protobuf-java-2.5.0.jar -->
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+
+        </dependency>
+
+        <!-- servlet-api-2.5.jar -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- slf4j-api-1.7.5.jar -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+
+        </dependency>
+
+
+        <!-- slf4j-log4j12-1.7.5.jar -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+
+            <scope>test</scope>
+        </dependency>
+
+        <!-- snappy-java-1.0.4.1.jar -->
+        <dependency>
+            <groupId>org.xerial.snappy</groupId>
+            <artifactId>snappy-java</artifactId>
+
+        </dependency>
+
+        <!-- stax-api-1.0-2.jar -->
+        <dependency>
+            <groupId>javax.xml.stream</groupId>
+            <artifactId>stax-api</artifactId>
+
+        </dependency>
+
+
+
+        <!-- xz-1.0.jar -->
+        <dependency>
+            <groupId>org.tukaani</groupId>
+            <artifactId>xz</artifactId>
+
+        </dependency>
+
+
+        <!-- zookeeper-3.4.6.jar -->
+        <dependency>
+            <groupId>org.apache.zookeeper</groupId>
+            <artifactId>zookeeper</artifactId>
+        </dependency>
+
+
+    </dependencies>
+
+
+
+    <build>
+
+        <sourceDirectory>src/main/java/</sourceDirectory>
+        <!--<testSourceDirectory>src/</testSourceDirectory>-->
+        <plugins>
+
+            <!-- This plugin compiles Java files -->
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <encoding>${file.encoding}</encoding>
+                    <source>${java.source.version}</source>
+                    <target>${java.target.version}</target>
+                    <showWarnings>true</showWarnings>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>application.properties</exclude>
+                        <exclude>hanlp.properties</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+
+            <!--<plugin>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-maven-plugin</artifactId>-->
+            <!--</plugin>-->
+
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>make-package</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <descriptors>
+                                <descriptor>src/main/assembly/assembly.xml</descriptor>
+                            </descriptors>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
+
 </project>
