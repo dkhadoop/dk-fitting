@@ -1,0 +1,117 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to you under the Apache License, Version 2.0
+ * (the License); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an AS IS BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+{
+  "version": "1.0",
+  "defaultSchema": "elasticsearch",
+  "schemas": [
+    {
+      "type": "custom",
+      "name": "dk",
+      "factory": "com.dk.sql.ElasticsearchSchemaFactory",
+      "operand": {
+        "esAddresses": "{'192.168.1.9': 9300}",
+        "esClusterConfig": "{'cluster.name': 'my-application'}",
+        "esIndexName": "essql"
+      }
+    },
+    {
+      "name": "elasticsearch",
+      "tables": [
+        /*{
+          "name": "type1",
+          "type":"view",
+          "sql": [
+            "select cast(_MAP['cmaxval'] AS varchar(50)) AS \"cmaxval\",\n",
+            " cast(_MAP['cbegintime'] AS varchar(50)) AS \"cbegintime\",\n",
+            " cast(_MAP['cpmobjindex'] AS varchar(50)) AS \"cpmobjindex\",\n",
+            " cast(_MAP['cminval'] AS varchar(50)) AS \"cminval\",\n",
+            " cast(_MAP['cpmvaluetype'] AS varchar(50)) AS \"cpmvaluetype\",\n",
+            " cast(_MAP['cpmcode'] AS varchar(50)) AS \"cpmcode\",\n",
+            " cast(_MAP['ccurvalue'] AS varchar(50)) AS \"ccurvalue\",\n",
+            " cast(_MAP['key'] AS varchar(50)) AS \"key\"\n",
+            "from \"dk\".\"type1\""
+          ]
+        }*/
+        {
+          "name": "customers",
+          "type": "view",
+          "sql": [
+            "select cast(_MAP['cust_id'] AS varchar(50)) AS \"cust_id\",\n",
+            " cast(_MAP['cust_name'] AS varchar(50)) AS \"cust_name\",\n",
+            " cast(_MAP['cust_address'] AS varchar(50)) AS \"cust_address\",\n",
+            " cast(_MAP['cust_city'] AS varchar(50)) AS \"cust_city\",\n",
+            " cast(_MAP['cust_state'] AS varchar(50)) AS \"cust_state\",\n",
+            " cast(_MAP['cust_zip'] AS varchar(50)) AS \"cust_zip\",\n",
+            " cast(_MAP['cust_country'] AS varchar(50)) AS \"cust_country\",\n",
+            " cast(_MAP['cust_contact'] AS varchar(50)) AS \"cust_contact\",\n",
+            " cast(_MAP['cust_email'] AS varchar(50)) AS \"cust_email\",\n",
+            " cast(_MAP['id'] AS varchar(50)) AS \"id\"\n",
+            "from \"dk\".\"customers\"" //可修改，ss为elasticsearch索引的别名，codelist为类型
+          ]
+        },{
+          "name": "orderitems",
+          "type": "view",
+          "sql": [
+            "select cast(_MAP['order_num'] AS integer) AS \"order_num\",\n",
+            " cast(_MAP['order_item'] AS integer) AS \"order_item\",\n",
+            " cast(_MAP['prod_id'] AS varchar(50)) AS \"prod_id\",\n",
+            " cast(_MAP['quantity'] AS integer) AS \"quantity\",\n",
+            " cast(_MAP['item_price'] AS double) AS \"item_price\",\n",
+            " cast(_MAP['id'] AS varchar(50)) AS \"id\"\n",
+            "from \"dk\".\"orderitems\"" //可修改，ss为elasticsearch索引的别名，codelist为类型
+          ]
+        },{
+          "name": "orders",
+          "type": "view",
+          "sql": [
+            "select cast(_MAP['order_num'] AS int) AS \"order_num\",\n",
+            " cast(_MAP['order_date'] AS varchar(50)) AS \"order_date\",\n",  //日期类型转换有问题
+            " cast(_MAP['cust_id'] AS varchar(50)) AS \"cust_id\",\n",
+            " cast(_MAP['id'] AS varchar(50)) AS \"id\"\n",
+            "from \"dk\".\"orders\"" //可修改，ss为elasticsearch索引的别名，codelist为类型
+          ]
+        },{
+          "name": "products",
+          "type": "view",
+          "sql": [
+            "select cast(_MAP['prod_id'] AS varchar(50)) AS \"prod_id\",\n",
+            " cast(_MAP['vend_id'] AS varchar(50)) AS \"vend_id\",\n",
+            " cast(_MAP['prod_name'] AS varchar(50)) AS \"prod_name\",\n",
+            " cast(_MAP['prod_price'] AS double) AS \"prod_price\",\n",
+            " cast(_MAP['prod_desc'] AS varchar(250)) AS \"prod_desc\",\n",
+            " cast(_MAP['id'] AS varchar(50)) AS \"id\"\n",
+            "from \"dk\".\"products\"" //可修改，ss为elasticsearch索引的别名，codelist为类型
+          ]
+        },{
+          "name": "vendors",
+          "type": "view",
+          "sql": [
+            "select cast(_MAP['vend_id'] AS varchar(50)) AS \"vend_id\",\n",
+            " cast(_MAP['vend_name'] AS varchar(50)) AS \"vend_name\",\n",
+            " cast(_MAP['vend_address'] AS varchar(50)) AS \"vend_address\",\n",
+            " cast(_MAP['vend_city'] AS varchar(50)) AS \"vend_city\",\n",
+            " cast(_MAP['vend_state'] AS varchar(50)) AS \"vend_state\",\n",
+            " cast(_MAP['vend_zip'] AS varchar(50)) AS \"vend_zip\",\n",
+            " cast(_MAP['vend_country'] AS varchar(50)) AS \"vend_country\",\n",
+            " cast(_MAP['id'] AS varchar(50)) AS \"id\"\n",
+            "from \"dk\".\"vendors\"" //可修改，ss为elasticsearch索引的别名，codelist为类型
+          ]
+        }
+      ]
+    }
+  ]
+}

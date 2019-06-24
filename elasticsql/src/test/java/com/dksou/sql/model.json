@@ -1,0 +1,16 @@
+{
+  "version": "1.0",//系统默认
+  "defaultSchema": "dkessql",//系统默认
+  "schemas": [
+    {
+      "type": "custom",//系统默认
+      "name": "dkessql",//系统默认
+      "factory": "com.dksou.essql.ElasticsearchSchemaFactory",//系统默认
+      "operand": {
+        "esAddresses": "{'192.168.1.99': 9300}",//可修改，指定elasticsearch的主机地址及端口，最好指定多个elasticsearch做高可用连接，多个地址用逗号隔开。如:"esAddresses": "{'192.168.1.41': 9300,'192.168.1.42': 9300}"
+        "esClusterConfig": "{'cluster.name': 'dkes'}",//可修改，'cluster.name': 'elasticsearch'指定elasticsearch的集群名，大快集群elasticsearch集群名默认为dkes，其它属性默认。
+        "esIndexName": "dksearch"//可修改，指定elasticsearch索引的名称
+      }
+    }
+  ]
+}

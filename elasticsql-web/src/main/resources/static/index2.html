@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>DKESSQL查询</title>
+    <link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <!-- 引入对话框组件bootstrap-dialog.css -->
+    <link href="css/bootstrap-dialog.min.css" rel="stylesheet" type="text/css"/>
+    <link href="css/index.css" rel="stylesheet" type="text/css"/>
+    <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="js/essql.js" type="text/javascript"></script>
+    <!-- 引入对话框组件bootstrap-dialog.js -->
+    <script src="js/bootstrap-dialog.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            getConf();
+        });
+    </script>
+    <style type="text/css">
+        .bootstrap-dialog.type-primary .modal-header {
+            background: #48c9b1;
+        }
+
+        .login-dialog .modal-dialog {
+            width: 800px;
+        }
+
+        .modal-dialog table {
+            margin: 0 auto;
+        }
+
+        .modal-dialog table th {
+            text-align: center;
+        }
+
+        .modal-dialog table td {
+            min-width: 100px;
+            max-width: 450px;
+            line-height: 20px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="container">
+        <div class="headBar">
+            <span>ElasticSQL查询</span>
+            <div class="btn1 btnHelp" onclick="helpModule();">帮助</div>
+        </div>
+        <div class="inputText">
+            <div class="leftText">
+                <div class="inputTitle">
+                    Elasticsearch连接配置
+                </div>
+                <div class="left-text">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label for="es_url" class="col-sm-4 control-label">es地址及端口</label>
+                            <div class="col-sm-8 input-group">
+                                <input type="text" class="form-control" id="es_url">
+                              <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button" title="参数说明"
+                                            data-container="body" data-toggle="popover" data-trigger="hover"
+                                            data-placement="right"
+                                            data-content="esip:esport(间隔符为英文冒号),es的java连接端口默认为9300">
+                                        <i class="icon-question"></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="esCluster_name" class="col-sm-4 control-label">es集群名称</label>
+                            <div class="col-sm-8 input-group">
+                                <input type="text" class="form-control" id="esCluster_name">
+                              <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button" title="参数说明"
+                                            data-container="body" data-toggle="popover" data-trigger="hover"
+                                            data-placement="right"
+                                            data-content="elasticsearch cluster-name">
+                                        <i class="icon-question"></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="esIndex_name" class="col-sm-4 control-label">es索引名称</label>
+                            <div class="col-sm-8 input-group">
+                                <input type="text" class="form-control" id="esIndex_name">
+                              <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button" title="参数说明"
+                                            data-container="body" data-toggle="popover" data-trigger="hover"
+                                            data-placement="right"
+                                            data-content="es的索引名，索引下的每个type对应一张表">
+                                        <i class="icon-question"></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                        <input type="button" onclick="queryIndex()"
+                               style="width:90px; height:36px; border-radius: 5px; border: none; color:#fff;float:right; background: #48c9b1"
+                               value="查询索引">
+                    </form>
+                </div>
+                <div class="leftBtn">
+                    <div class="btn1 btn-save" onclick="saveSchema();">
+                        保存
+                    </div>
+                </div>
+            </div>
+            <div class="rightText">
+                <div class="inputSQL">
+                    <div class="inputTitle">
+                        输入SQL语句
+                    </div>
+                    <textarea class="right-text" id="sqlContent">select * from orders</textarea>
+                    <div style="text-align: right;"><span class="btn1 btn-sech" onclick="query();">查询</span></div>
+                </div>
+                <div class="result" id="returndata" style="overflow: scroll">
+
+                </div>
+                <!--<input type="button" onclick="exportButton()" style="margin-top:20px; width:90px; height:36px; border-radius: 5px; border: none; color:#fff;float:right; background: #48c9b1"  value="导出">-->
+                <div style="text-align: right;"><span class="btn1 btn-sech"> <a href="#" rel="external nofollow"
+                                                                                id="exportResult"
+                                                                                style="text-decoration:none;color: white">导出结果</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $("[data-toggle='popover']").popover();
+    });
+</script>
+<!--<script>
+    $(function (){
+        $("[data-toggle='popover']").popover();
+    });
+
+
+
+    // 文件导出为txt
+    function exportButton(){
+      var testData = "测试数据 json数据导出为TXT"
+      var blob = new Blob([testData], {type: "text/plain;charset=utf-8"});// testData 为需要保存到文件的字符串内容
+      saveAs(blob, "test.txt");//test.txt为保存的文件名
+    }
+</script>-->
+
+
+<!-- 文件保存 JS基于FileSaver.js插件实现文件保存功能 -->
+<!--<script type="text/javascript">
+  var saveAs = saveAs ||
+  function(e) {
+      "use strict";
+      if (typeof navigator !== "undefined" && /MSIE [1-9]\./.test(navigator.userAgent)) {
+          return
+      }
+      var t = e.document,
+      n = function() {
+          return e.URL || e.webkitURL || e
+      },
+      r = t.createElementNS("http://www.w3.org/1999/xhtml", "a"),
+      i = "download" in r,
+      o = function(e) {
+          var t = new MouseEvent("click");
+          e.dispatchEvent(t)
+      },
+      a = /Version\/[\d\.]+.*Safari/.test(navigator.userAgent),
+      f = e.webkitRequestFileSystem,
+      u = e.requestFileSystem || f || e.mozRequestFileSystem,
+      s = function(t) { (e.setImmediate || e.setTimeout)(function() {
+              throw t
+          },
+          0)
+      },
+      c = "application/octet-stream",
+      d = 0,
+      l = 500,
+      w = function(t) {
+          var r = function() {
+              if (typeof t === "string") {
+                  n().revokeObjectURL(t)
+              } else {
+                  t.remove()
+              }
+          };
+          if (e.chrome) {
+              r()
+          } else {
+              setTimeout(r, l)
+          }
+      },
+      p = function(e, t, n) {
+          t = [].concat(t);
+          var r = t.length;
+          while (r&#45;&#45;) {
+              var i = e["on" + t[r]];
+              if (typeof i === "function") {
+                  try {
+                      i.call(e, n || e)
+                  } catch(o) {
+                      s(o)
+                  }
+              }
+          }
+      },
+      v = function(e) {
+          if (/^\s*(?:text\/\S*|application\/xml|\S*\/\S*\+xml)\s*;.*charset\s*=\s*utf-8/i.test(e.type)) {
+              return new Blob(["\ufeff", e], {
+                  type: e.type
+              })
+          }
+          return e
+      },
+      y = function(t, s, l) {
+          if (!l) {
+              t = v(t)
+          }
+          var y = this,
+          m = t.type,
+          S = false,
+          h, R, O = function() {
+              p(y, "writestart progress write writeend".split(" "))
+          },
+          g = function() {
+              if (R && a && typeof FileReader !== "undefined") {
+                  var r = new FileReader;
+                  r.onloadend = function() {
+                      var e = r.result;
+                      R.location.href = "data:attachment/file" + e.slice(e.search(/[,;]/));
+                      y.readyState = y.DONE;
+                      O()
+                  };
+                  r.readAsDataURL(t);
+                  y.readyState = y.INIT;
+                  return
+              }
+              if (S || !h) {
+                  h = n().createObjectURL(t)
+              }
+              if (R) {
+                  R.location.href = h
+              } else {
+                  var i = e.open(h, "_blank");
+                  if (i == undefined && a) {
+                      e.location.href = h
+                  }
+              }
+              y.readyState = y.DONE;
+              O();
+              w(h)
+          },
+          b = function(e) {
+              return function() {
+                  if (y.readyState !== y.DONE) {
+                      return e.apply(this, arguments)
+                  }
+              }
+          },
+          E = {
+              create: true,
+              exclusive: false
+          },
+          N;
+          y.readyState = y.INIT;
+          if (!s) {
+              s = "download"
+          }
+          if (i) {
+              h = n().createObjectURL(t);
+              r.href = h;
+              r.download = s;
+              setTimeout(function() {
+                  o(r);
+                  O();
+                  w(h);
+                  y.readyState = y.DONE
+              });
+              return
+          }
+          if (e.chrome && m && m !== c) {
+              N = t.slice || t.webkitSlice;
+              t = N.call(t, 0, t.size, c);
+              S = true
+          }
+          if (f && s !== "download") {
+              s += ".download"
+          }
+          if (m === c || f) {
+              R = e
+          }
+          if (!u) {
+              g();
+              return
+          }
+          d += t.size;
+          u(e.TEMPORARY, d, b(function(e) {
+              e.root.getDirectory("saved", E, b(function(e) {
+                  var n = function() {
+                      e.getFile(s, E, b(function(e) {
+                          e.createWriter(b(function(n) {
+                              n.onwriteend = function(t) {
+                                  R.location.href = e.toURL();
+                                  y.readyState = y.DONE;
+                                  p(y, "writeend", t);
+                                  w(e)
+                              };
+                              n.onerror = function() {
+                                  var e = n.error;
+                                  if (e.code !== e.ABORT_ERR) {
+                                      g()
+                                  }
+                              };
+                              "writestart progress write abort".split(" ").forEach(function(e) {
+                                  n["on" + e] = y["on" + e]
+                              });
+                              n.write(t);
+                              y.abort = function() {
+                                  n.abort();
+                                  y.readyState = y.DONE
+                              };
+                              y.readyState = y.WRITING
+                          }), g)
+                      }), g)
+                  };
+                  e.getFile(s, {
+                      create: false
+                  },
+                  b(function(e) {
+                      e.remove();
+                      n()
+                  }), b(function(e) {
+                      if (e.code === e.NOT_FOUND_ERR) {
+                          n()
+                      } else {
+                          g()
+                      }
+                  }))
+              }), g)
+          }), g)
+      },
+      m = y.prototype,
+      S = function(e, t, n) {
+          return new y(e, t, n)
+      };
+      if (typeof navigator !== "undefined" && navigator.msSaveOrOpenBlob) {
+          return function(e, t, n) {
+              if (!n) {
+                  e = v(e)
+              }
+              return navigator.msSaveOrOpenBlob(e, t || "download")
+          }
+      }
+      m.abort = function() {
+          var e = this;
+          e.readyState = e.DONE;
+          p(e, "abort")
+      };
+      m.readyState = m.INIT = 0;
+      m.WRITING = 1;
+      m.DONE = 2;
+      m.error = m.onwritestart = m.onprogress = m.onwrite = m.onabort = m.onerror = m.onwriteend = null;
+      return S
+  } (typeof self !== "undefined" && self || typeof window !== "undefined" && window || this.content);
+  if (typeof module !== "undefined" && module.exports) {
+      module.exports.saveAs = saveAs
+  } else if (typeof define !== "undefined" && define !== null && define.amd != null) {
+      define([],
+      function() {
+          return saveAs
+      })
+  }
+  // 使用
+  // var blob = new Blob(['out_put_string'], {type: "text/plain;charset=utf-8"});//out_put_string为需要保存到文件的字符串内容
+  // saveAs(blob, "filename.php");//filename.php为保存的文件名
+</script>-->
+
+</body>
+</html>

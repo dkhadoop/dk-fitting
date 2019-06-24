@@ -29,7 +29,6 @@
         <module>dataprocess</module>
         <module>elasticsql</module>
         <module>elasticsql-web</module>
-        <module>test</module>
         <module>stream</module>
     </modules>
 
