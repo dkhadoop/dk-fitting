@@ -11,12 +11,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>elasticsql-web</artifactId>
+    <version>1.0</version>
+    <packaging>jar</packaging>
     <dependencies>
-        <dependency>
+        <!--<dependency>
             <groupId>fitting</groupId>
             <artifactId>elasticsql</artifactId>
             <version>${elasticsql.version}</version>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
@@ -32,7 +34,7 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
+      <dependency>
             <groupId>org.apache.calcite</groupId>
             <artifactId>calcite-core</artifactId>
             <version>${calcite-core.version}</version>
@@ -104,7 +106,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
-            <scope>true</scope>
+           <!-- <scope>true</scope>-->
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
@@ -117,7 +119,7 @@
 
     <build>
         <plugins>
-            <plugin>
+            <!--<plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
                 <executions>
@@ -150,8 +152,28 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>-->
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>make-package</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <descriptors>
+                                <descriptor>src/main/assembly/assembly.xml</descriptor>
+                            </descriptors>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
-
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
 
 
 
