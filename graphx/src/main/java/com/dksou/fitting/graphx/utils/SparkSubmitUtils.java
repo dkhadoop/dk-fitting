@@ -56,7 +56,7 @@ public class SparkSubmitUtils {
         command.append("--class" + " " + className + " ");
         String dkgraphxpath = PathUtils.processingPathSeparator(prop.get("dkgraphx.path"));
         command.append(dkgraphxpath + "lib/graphx-1.0.jar" + " ");
-// freerch-graphx-2.0.jar
+// fitting-graphx-2.0.jar
         for(String arg : args){
             command.append(arg + " ");
         }

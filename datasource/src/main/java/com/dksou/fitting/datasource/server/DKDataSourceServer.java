@@ -67,7 +67,7 @@ public class DKDataSourceServer {
     public static void simple(TMultiplexedProcessor processor) {
         try {
             Properties Prop = PropUtil.loadProp(System.getProperty("user.dir") + "/conf/datasource.properties");
-            //Properties Prop = PropUtil.loadProp("D:\\workspace\\FreeRCH\\freerch-datasource\\src\\main\\resources\\datasource.properties");
+            //Properties Prop = PropUtil.loadProp("D:\\workspace\\fitting\\fitting-datasource\\src\\main\\resources\\datasource.properties");
             int port = Integer.valueOf(Prop.getProperty("datasource.port"));
             TServerTransport serverTransport = new TServerSocket(port);
             TThreadPoolServer server = new TThreadPoolServer(new TThreadPoolServer.Args(serverTransport).processor(processor));

@@ -294,7 +294,7 @@ public class OfficeUtils {
 //            System.out.println("read = " + read);
 //            String read = poiExcel2Txt("C:\\Users\\Administrator\\Desktop\\aaa\\大数据项目测试用例v0.5-151210.xls");
 //            System.out.println("read = " + read);
-            List gettitles = gettitles("E:\\freerch\\test数据\\excel文档test\\123123\\工作簿1.xlsx");
+            List gettitles = gettitles("E:\\fitting\\test数据\\excel文档test\\123123\\工作簿1.xlsx");
             for (int i = 0; i <gettitles.size() ; i++) {
                 System.out.println( "title = [" + gettitles.get( i )+ "]" );
             }

@@ -240,7 +240,7 @@ public class DKSearchInputImpl implements DKSearchInput.Iface {
                 filePath = fileDir + "/" + fileName;
             }else {
                 filePath = fileDir + fileName;
-                //filePath="E:\\freerch\\test数据\\pdf测试\\1.pdf";
+                //filePath="E:\\fitting\\test数据\\pdf测试\\1.pdf";
             }
         try {
             File file = new File(filePath);

@@ -103,7 +103,7 @@ service  DataCleanKerberosService  {
    * @param hostPort：hiveserver的端口，默认10000
    * @param hostName：要连接主机的用户名，
    * @param hostPassword：要连接主机的密码（要具备执行Hadoop的权限的用户）。
-   * @param freerchHome：freeHome的目录
+   * @param fittingHome：freeHome的目录
    * @param javaBinHome：Java的bin的全路径
    * @param user：Service Principal登陆用户名;
    * @param krb5Path：krb5.conf存放路径

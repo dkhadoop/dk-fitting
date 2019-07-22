@@ -18,7 +18,7 @@ public class PropUtil {
     }
 
     public static void main(String[] args) {
-        Properties properties = PropUtil.loadProp("D:\\workspace\\FreeRCH\\freerch-datasource\\src\\main\\resources\\datasource.properties");
+        Properties properties = PropUtil.loadProp("D:\\workspace\\fitting\\fitting-datasource\\src\\main\\resources\\datasource.properties");
         String property = properties.getProperty("datasource.port");
         System.out.println(property);
     }

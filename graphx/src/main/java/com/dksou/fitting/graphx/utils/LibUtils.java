@@ -34,7 +34,7 @@ public class LibUtils {
     }
 
     public static void main(String[] args) {
-        String path = "D:\\code\\workspace\\dkgit\\freerch-ml\\src\\main\\java\\com\\dksou\\freerch\\ml\\service\\serviceImpl\\als";
+        String path = "D:\\code\\workspace\\dkgit\\fitting-ml\\src\\main\\java\\com\\dksou\\fitting\\ml\\service\\serviceImpl\\als";
         getLibJars(path);
     }
 }

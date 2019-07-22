@@ -38,7 +38,7 @@ public class DKSQLUtilsServer {
     public static void simple(TMultiplexedProcessor processor) {
         try {
             Properties Prop = PropUtil.loadProp(System.getProperty("user.dir") + "/conf/sqlutils.properties");
-            //Properties Prop = PropUtil.loadProp("D:\\workspace\\FreeRCH\\freerch-sqlutils\\src\\main\\resources\\sqlutils.properties");
+            //Properties Prop = PropUtil.loadProp("D:\\workspace\\fitting\\fitting-sqlutils\\src\\main\\resources\\sqlutils.properties");
             int port = Integer.valueOf(Prop.getProperty("sqlutils.port"));
             TServerTransport serverTransport = new TServerSocket(port);
             TThreadPoolServer server = new TThreadPoolServer(new TThreadPoolServer.Args(serverTransport).processor(processor));

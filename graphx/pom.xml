@@ -63,7 +63,7 @@
 
 
     <build>
-        <finalName>${artifactId}-v2.0-2.x-2.11</finalName>
+        <finalName>${artifactId}-v1.0-2.x-2.11</finalName>
         <sourceDirectory>src/main/java/</sourceDirectory>
         <!--<testSourceDirectory>src/</testSourceDirectory>-->
         <plugins>
