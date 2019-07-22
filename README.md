@@ -11,7 +11,7 @@ Fitting支持C、C++、C#、Cocoa、Common Lisp、Dlang、Dart、Delphi、Erlang
 
 # Fitting安装文件地址
 <p>
-百度云地址：（https://github.com/dkhadoop/fitting/wiki）
+百度云地址：（）
 </p></br>
 
 # Fitting文档地址
