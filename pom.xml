@@ -107,7 +107,7 @@
 
 
         <!-- Test libs -->
-        <junit.version>4.10</junit.version>
+        <junit.version>4.13.1</junit.version>
 
         <!-- Build args -->
         <!--<argline>-server -Xms64m -Xmx64m -XX:PermSize=64m -XX:MaxPermSize=64m</argline> -->
