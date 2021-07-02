@@ -134,7 +134,7 @@
 
 
         <!--stream版本 -->
-        <elasticsearch.version>5.6.8</elasticsearch.version>
+        <elasticsearch.version>6.8.15</elasticsearch.version>
         <transport.version>5.6.8</transport.version>
         <commons-pool2.version>2.4.2</commons-pool2.version>
         <kafka_2.10.version>0.10.0.1</kafka_2.10.version>
