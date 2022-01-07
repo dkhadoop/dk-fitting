@@ -196,7 +196,7 @@
         <jsr305.version>1.3.9</jsr305.version>
         <netty.version>3.6.2.Final</netty.version>
         <paranamer.version>2.3</paranamer.version>
-        <protobuf-java.version>2.5.0</protobuf-java.version>
+        <protobuf-java.version>3.16.1</protobuf-java.version>
         <servlet-api.version>2.5</servlet-api.version>
         <snappy-java.version>1.0.4.1</snappy-java.version>
         <stax-api.version>1.0-2</stax-api.version>
