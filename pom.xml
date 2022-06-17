@@ -204,7 +204,7 @@
         <commons-httpclient.version>3.1</commons-httpclient.version>
         <hadoop-yarn-api.version>2.6.0</hadoop-yarn-api.version>
         <hadoop-yarn-client.version>2.6.0</hadoop-yarn-client.version>
-        <hadoop-yarn-server-common.version>2.6.0</hadoop-yarn-server-common.version>
+        <hadoop-yarn-server-common.version>2.10.2</hadoop-yarn-server-common.version>
         <hadoop-mapreduce-client-core.version>2.6.0</hadoop-mapreduce-client-core.version>
         <hadoop-yarn-common.version>2.6.0</hadoop-yarn-common.version>
         <jersey-core.version>1.9.1</jersey-core.version>
