@@ -189,7 +189,7 @@
         <jersey-client.version>1.9.1</jersey-client.version>
         <jersey-server.version>1.9</jersey-server.version>
         <jets3t.version>0.9.0</jets3t.version>
-        <jettison.version>1.1</jettison.version>
+        <jettison.version>1.5.1</jettison.version>
         <jetty-util.version>6.1.26</jetty-util.version>
         <jsch.version>0.1.42</jsch.version>
         <jsp-api.version>2.1</jsp-api.version>
